@@ -45,7 +45,8 @@
 
   .about-description__text {
     width: 100%;
-    height: 65%;
+    /* height: 65%; */
+    max-height: 175px;
     color: antiquewhite;
     font-family: "TT Lakes";
     font-size: 14px;
