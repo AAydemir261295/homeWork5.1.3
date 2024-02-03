@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "TT Lakes";
+  src: url("TTLakesCondensed-DemiBold.eot");
+  src: local("TT Lakes Condensed DemiBold"), local("TTLakesCondensed-DemiBold"),
+    url("fonts/TTLakesCondensed-DemiBold.eot?#iefix")
+      format("embedded-opentype"),
+    url("fonts/TTLakesCondensed-DemiBold.woff") format("woff"),
+    url("fonts/TTLakesCondensed-DemiBold.ttf") format("truetype");
+  font-weight: bolder;
+  font-style: normal;
+  font-display: optional;
+}

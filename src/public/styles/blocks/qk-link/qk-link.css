@@ -1,0 +1,24 @@
+.qk-link {
+  cursor: pointer;
+  color: antiquewhite;
+  transition-duration: 0.2s;
+}
+
+.qk-link:link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.qk-link:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.qk-link:hover {
+  color: rgba(88, 94, 90, 0.589);
+  mix-blend-mode: soft-light;
+}
+
+.qk-link:focus {
+  color: rgba(88, 94, 90, 0.589);
+}

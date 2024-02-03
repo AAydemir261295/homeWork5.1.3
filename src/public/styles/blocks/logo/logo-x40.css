@@ -1,0 +1,11 @@
+.logo-x40 {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  border: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='198' height='150' viewBox='0 0 198 150' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='8' height='150' rx='4' fill='%23FAEBD7'/%3E%3Cpath d='M0 146C0 143.791 1.79086 142 4 142H50C52.2091 142 54 143.791 54 146V146C54 148.209 52.2091 150 50 150H4C1.79086 150 0 148.209 0 146V146Z' fill='%23FAEBD7'/%3E%3Crect x='62' width='9' height='150' rx='4.5' fill='%23CD5C5C'/%3E%3Crect x='80' width='9' height='150' rx='4.5' fill='%23FAEBD7'/%3E%3Crect width='7.74689' height='155.043' rx='3.87344' transform='matrix(0.954941 -0.296797 0.295217 0.95543 80.8163 2.29926)' fill='%23FAEBD7'/%3E%3Crect x='126' width='8' height='150' rx='4' fill='%23FAEBD7'/%3E%3Crect x='144' width='8' height='150' rx='4' fill='%23FAEBD7'/%3E%3Crect x='144' width='54' height='7' rx='3.5' fill='%23FAEBD7'/%3E%3Crect x='144' y='72' width='54' height='7' rx='3.5' fill='%23FAEBD7'/%3E%3Crect x='144' y='142' width='54' height='8' rx='4' fill='%23FAEBD7'/%3E%3C/svg%3E ");
+  background-position: 50%;
+  background-size: 40px;
+  background-repeat: no-repeat;
+}

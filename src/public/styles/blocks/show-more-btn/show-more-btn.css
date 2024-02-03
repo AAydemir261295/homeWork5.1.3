@@ -1,0 +1,34 @@
+.show-more-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: "TT Lakes";
+  color: antiquewhite;
+  line-height: 0px;
+  width: 140px;
+  font-family: "TT Lakes";
+  font-size: 20px;
+  height: 20px;
+  cursor: pointer;
+  outline: none;
+  background-color: transparent;
+  border: none;
+}
+
+.show-more-btn::after {
+  content: attr(data-text);
+  text-wrap: nowrap;
+}
+
+.show-more-btn img {
+  width: 15px;
+  height: 15px;
+  padding: 4px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  transition-duration: 0.3s;
+}
+
+.show-more-btn:hover img {
+  border: 1px solid antiquewhite;
+}

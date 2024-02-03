@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" width="150" height="150">
+	<title>Новый проект</title>
+	<defs>
+		<image  width="91" height="68" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFsAAABECAMAAADZaLnlAAAAAXNSR0IB2cksfwAAAPZQTFRFAAAA+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvX+uvXMt8G1QAAAFJ0Uk5TAP8P7UkCuvMgeNoLObUDiUz33gyKkZPRBKP5GwGrV5rBBsYjBdQ8m9v7+MBK5i5D6/6pHdD07w5zcPpF6twhgP2ZdO4+oDq5EoFc2SzSGXr2CTlgEyEAAAHVSURBVHic7dRpV4JAFAbguZUttmqbWVZauWGlLZq2aPte+P//TIgcnA0Y4U6feL/BmXngvBeGEDuAG0JlYhLXnqLxxDSiPDNL2Myh0cl5wmcBiV5cEmis0pclMlLpK3IaofQUP0W80tOrtLVG1n2eFCkbQGAzo4Xesv5OgOw2vryTA9sG2EWn7S9ueErt4dKJfRjZkM4j0pkC0DbAARp9eAScDcGbFJMEH7tYKleqRk3VqhnVSrlUdK/BxzacG8cnKvJp3VluqNjuncZZIkg+vwABULIBLv2LyecaMJ7dpNZDoeVNX2XplU0Vu03vgE7bQ76+YdaBu87Pdofp5PZOItNF23FH6W+TboXZ1rvnZbZoK9UHomiTFvfqj08+RVsPf6bP6QCbkJc6u/11dODwRYPxxmwNtAl57zBA6sOj6M8vbqOCLRTz/SMpuin+ASq2dbCwxfS6fNGpX8kuNVsohg07wrFtoRgq3AjHt8UvxokwwjC2tBjJCMPZQjHSEYa02WI8RhjaporxGmEE2ynGe4RR7EExfiOMZismtmM7tmM7tv/VxsJNjTbIbBzclNsIummClx0+5jDsmyLZsmi19eF9jTbRa+vC+0Qb3ne/eWy4P6D/AF6ULskz94CqAAAAAElFTkSuQmCC"/>
+	</defs>
+	<style>
+	</style>
+	<use id="Слой 3" href="#img1" x="30" y="39"/>
+</svg>

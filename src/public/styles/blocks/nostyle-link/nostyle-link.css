@@ -1,0 +1,23 @@
+.nostyle-link {
+  color: antiquewhite;
+}
+
+.nostyle-link:link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nostyle-link:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nostyle-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nostyle-link:focus {
+  text-decoration: none;
+  color: inherit;
+}

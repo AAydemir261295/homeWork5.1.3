@@ -1,0 +1,43 @@
+.brands {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 310px;
+  min-height: 170px;
+  max-width: 1245px;
+  border: 1px solid antiquewhite;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.brands__caption {
+  display: table-caption;
+  text-align: start;
+  min-width: 310px;
+  margin-left: 20px;
+  margin-bottom: 0px;
+  font-family: "TT Lakes";
+  align-self: flex-start;
+}
+
+.brands__show-more-btn {
+  align-self: flex-start;
+  margin-left: 30px;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .brands {
+    width: 100%;
+    height: auto;
+  }
+
+  .brands__caption {
+    margin-left: 10px;
+  }
+
+  .brands__show-more {
+    margin-left: 10px;
+  }
+}

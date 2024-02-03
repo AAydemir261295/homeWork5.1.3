@@ -1,0 +1,23 @@
+@import url(blocks/brands/brands.css);
+@import url(blocks/brands-list/brands-list.css);
+@import url(blocks/brands-scroll/brands-scroll.css);
+@import url(blocks/my-x-scroll/my-x-scroll.css);
+@import url(blocks/show-more-btn/show-more-btn.css);
+@import url(blocks/next-btn/next-btn--round.css);
+@import url(fonts.css);
+
+html {
+  margin: 0;
+  padding: 0;
+  background-color: #808d85;
+  color: #faebd7;
+}
+
+body {
+  max-height: 1024px;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+}

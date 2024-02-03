@@ -1,0 +1,116 @@
+.nav-bar {
+  border: 1px solid antiquewhite;
+  border-radius: 20px;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: rgba(250, 235, 215, 0.241);
+  height: 45px;
+}
+
+.nav-bar__items {
+  height: 100%;
+  width: 100%;
+}
+
+.nav-bar__logo {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 95px;
+}
+
+.nav-bar__item {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+}
+
+.nav-bar__items :nth-child(1) {
+  position: absolute;
+  left: 20px;
+}
+
+.nav-bar__items :nth-child(2) {
+  position: absolute;
+  left: 100px;
+}
+
+.nav-bar__items :nth-child(6) {
+  position: absolute;
+  right: 105px;
+}
+
+.nav-bar__items :nth-child(7) {
+  position: absolute;
+  right: 58px;
+}
+
+@media screen and (max-width: 480px) {
+  .nav-bar__items :nth-child(3) {
+    display: none;
+  }
+
+  .nav-bar__items :nth-child(4) {
+    display: none;
+  }
+
+  .nav-bar__items :nth-child(5) {
+    display: none;
+  }
+
+  .nav-bar__items::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    border: 1px solid antiquewhite;
+    border-radius: 2px;
+    background-color: rgba(250, 235, 215, 0.422);
+    height: 25px;
+    left: 50%;
+    margin-top: 7px;
+  }
+}
+
+@media screen and (max-width: 780px) and (min-width: 480px) {
+  .nav-bar__items::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    border: 1px solid antiquewhite;
+    border-radius: 2px;
+    background-color: rgba(250, 235, 215, 0.422);
+    height: 25px;
+    left: 87px;
+    margin-top: 7px;
+  }
+  .nav-bar__items::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    border: 1px solid antiquewhite;
+    border-radius: 2px;
+    background-color: rgba(250, 235, 215, 0.422);
+    height: 25px;
+    right: 133px;
+    margin-top: 7px;
+  }
+
+  .nav-bar__items :nth-child(3) {
+    right: 265px;
+  }
+
+  .nav-bar__items :nth-child(4) {
+    right: 215px;
+  }
+
+  .nav-bar__items :nth-child(5) {
+    right: 165px;
+  }
+}
+
+@media screen and (max-width: 4000px) and (min-width: 780px) {
+  .nav-bar {
+    display: none;
+  }
+}

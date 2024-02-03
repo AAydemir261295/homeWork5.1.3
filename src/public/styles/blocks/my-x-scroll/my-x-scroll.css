@@ -1,0 +1,50 @@
+.my-x-scroll {
+  display: flex;
+  flex-direction: row;
+  height: 18px;
+  width: 74%;
+  border-radius: 8px;
+  padding: 0 5px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.my-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.my-scroll:hover {
+}
+
+.my-x-scroll-item {
+  width: 15px;
+  height: 15px;
+  min-width: 15px;
+  border: 1px solid antiquewhite;
+  border-radius: 7px;
+  margin-right: 10px;
+  transition-duration: 0.5s;
+  cursor: pointer;
+}
+
+.my-x-scroll-item--selected {
+  width: 15px;
+  height: 15px;
+  min-width: 15px;
+  border: 1px solid antiquewhite;
+  border-radius: 7px;
+  margin-right: 10px;
+  transition-duration: 0.5s;
+  cursor: pointer;
+  background-color: rgba(250, 235, 215, 0.435);
+}
+
+.my-x-scroll-item:hover {
+  background-color: rgba(250, 235, 215, 0.435);
+}
+
+@media screen and (min-width: 480px) {
+  .my-x-scroll {
+    display: none;
+  }
+}

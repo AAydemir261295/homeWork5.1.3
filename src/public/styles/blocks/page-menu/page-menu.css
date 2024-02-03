@@ -1,0 +1,70 @@
+.page-menu {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  scrollbar-width: thin;
+  overflow-y: hidden;
+  min-height: 30px;
+}
+
+.page-menu__btn {
+  background-color: transparent;
+  outline: none;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: antiquewhite;
+  margin-right: 5px;
+  padding-top: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 1px;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+  cursor: pointer;
+  font-family: "TT Lakes";
+  font-weight: bold;
+  font-size: 14px;
+  transition-duration: 0.3s;
+  min-height: 25px;
+}
+
+.page-menu__btn:hover {
+  border: 1px solid antiquewhite;
+}
+
+/********* TEMP */
+.page-menu :nth-child(2) {
+  border: 1px solid antiquewhite;
+}
+/* TEMP ********/
+
+@media screen and (max-width: 480px) {
+  .page-menu {
+    overflow-x: auto;
+    justify-content: flex-start;
+    height: 10%;
+  }
+}
+
+@media screen and (max-width: 780px) and (min-width: 480px) {
+  .page-menu {
+    overflow-x: scroll;
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 1120px) and (min-width: 780px) {
+  .page-menu {
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 10000px) and (min-width: 1120px) {
+  .page-menu {
+    overflow-x: auto;
+    justify-content: center;
+  }
+}
