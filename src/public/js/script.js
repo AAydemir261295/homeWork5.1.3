@@ -1,6 +1,6 @@
 var container = document.querySelector(".brands");
 var ele = document.querySelector(".brands-list");
-var listingEle = document.querySelector(".brands-scroll");
+var listingEle = document.querySelector(".brands__scroll");
 var brands = ele.children;
 var brandsCount = brands.length;
 var previousPosition = 0;
@@ -15,11 +15,27 @@ var startPosition = 0;
 var showMoreBtn = null;
 var isHideMoreActive = false;
 
+var initScrollValue = 244;
+var initViewedBrands = Math.floor(window.innerWidth / 244);
+var initScrollItems = 0;
+
+switch (initViewedBrands) {
+  case 1:
+    initScrollItems = brands.length;
+    break;
+  case 2:
+    initScrollItems = 6;
+    initScrollValue = 244 * 2;
+    break;
+  case 3:
+    initScrollItems = 4;
+    initScrollValue = 244 * 3;
+    break;
+}
+
 listingEle.onmouseover = function () {
   window.onwheel = function (ev) {
     ev.stopImmediatePropagation();
-    console.log(viewableItems);
-    console.log(maxSlideableWidth);
     if (ev.deltaY < 0) {
       scrollDestination = Math.max(
         0,
@@ -36,38 +52,93 @@ listingEle.onmouseover = function () {
   };
 };
 
+function getBlurEle(className) {
+  var div = document.createElement("div");
+  div.classList.add(className);
+  return div;
+}
+
+function blurEdges(position) {
+  // =)
+  var toRemoveBefore = document.querySelector(".blur-before");
+  let toRemoveAfter = document.querySelector(".blur-after");
+  if (toRemoveBefore != null) {
+    toRemoveBefore.style.opacity = 0;
+    setTimeout(() => {
+      container.removeChild(toRemoveBefore);
+    }, 1000);
+  }
+  if (toRemoveAfter != null) {
+    toRemoveAfter.style.opacity = 0;
+    setTimeout(() => {
+      container.removeChild(toRemoveAfter);
+    }, 1000);
+  }
+
+  if (position == 0) {
+    let ele = getBlurEle("blur-after");
+    container.appendChild(ele);
+    ele.style.opacity = 1;
+    setTimeout(() => {
+      ele.style.opacity = 1;
+    }, 10);
+  } else if (position == listingEle.children.length - 1) {
+    let ele = getBlurEle("blur-before");
+    container.insertBefore(ele, container.children[0]);
+    setTimeout(() => {
+      ele.style.opacity = 1;
+    }, 10);
+  } else {
+    let eleBefore = getBlurEle("blur-before");
+    let eleAfter = getBlurEle("blur-after");
+    container.insertBefore(eleBefore, container.children[0]);
+    container.appendChild(eleAfter);
+    setTimeout(() => {
+      eleBefore.style.opacity = 1;
+      eleAfter.style.opacity = 1;
+    }, 10);
+  }
+}
+
+blurEdges(0);
+
 function showBrand(selected, position) {
   for (const item of listingEle.children) {
     item.classList.remove("my-x-scroll-item--selected");
   }
   selected.classList.add("my-x-scroll-item--selected");
 
-  let width = position * 255;
+  let width = position * initScrollValue;
   startPosition = position;
   previousPosition = width;
-  ele.scrollTo(width, 0);
+  ele.scrollTo({ left: width, behavior: "smooth" });
+  blurEdges(position);
 }
 
 function dragTheBall(position) {
+  console.log(position);
   for (const item of listingEle.children) {
-    console.log("fired");
     item.classList.remove("my-x-scroll-item--selected");
   }
   listingEle.children[position].classList.add("my-x-scroll-item--selected");
 }
 
-for (let q = 0; q < brandsCount; q++) {
-  const listItem = document.createElement("div");
-  if (q == 0) {
-    listItem.classList.add("my-x-scroll-item", "my-x-scroll-item--selected");
-  } else {
-    listItem.classList.add("my-x-scroll-item");
+function drawXScroll(itemsCount) {
+  for (let q = 0; q < itemsCount; q++) {
+    const listItem = document.createElement("div");
+    if (q == 0) {
+      listItem.classList.add("my-x-scroll-item", "my-x-scroll-item--selected");
+    } else {
+      listItem.classList.add("my-x-scroll-item");
+    }
+    listingEle.appendChild(listItem);
+    listItem.onclick = function () {
+      showBrand(listItem, q);
+    };
   }
-  listingEle.appendChild(listItem);
-  listItem.onclick = function () {
-    showBrand(listItem, q);
-  };
 }
+
+drawXScroll(initScrollItems);
 
 viewableItems = Math.round((window.innerWidth * 0.74) / 26);
 itemsLen = listingEle.children.length - 1;
@@ -75,22 +146,25 @@ maxSlideableWidth = (listingEle.children.length - viewableItems) * 26;
 
 ele.ontouchstart = function (onStart) {
   ele.ontouchend = function (onEnd) {
+    // prevent default maybe to disable animation broke
     var before = onStart.changedTouches[0].pageX;
     var after = onEnd.changedTouches[0].pageX;
     if (before != after) {
       var swipeToLeft = before > after ? true : false;
-      console.log(swipeToLeft);
-      if (swipeToLeft) {
+      if (swipeToLeft && startPosition < 10) {
         ++startPosition;
-        previousPosition += 255;
-        ele.scrollTo(previousPosition, 0);
-      } else {
+        previousPosition += initScrollValue;
+        // ele.scrollTo(previousPosition, 0);
+        ele.scrollTo({ left: previousPosition, behavior: "smooth" });
+      } else if (!swipeToLeft && startPosition > 0) {
         --startPosition;
-        previousPosition -= 255;
-        ele.scrollTo(previousPosition, 0);
+        previousPosition -= initScrollValue;
+        ele.scrollTo({ left: previousPosition, behavior: "smooth" });
       }
       dragTheBall(startPosition);
+      blurEdges(startPosition);
     }
+    console.log(listingEle);
   };
 };
 
@@ -105,30 +179,22 @@ function prepareButton() {
   return button;
 }
 
-function btnIsRequire() {
-  let listPadding = 40;
-  ele = document.querySelector(".brands-list");
-  let brandsCount = ele.children.length;
-  let brandContainer = { h: 70, w: 240 };
-  let listEle = { w: ele.clientWidth - listPadding };
-  let viewedInRow = Math.floor(listEle.w / brandContainer.w);
-  if (viewedInRow > brandsCount / 2) {
-    return false;
-  } else {
-    return brandsCount % viewedInRow != 0;
-  }
-}
-
 function hideMore() {
   showMoreBtn.children[0].style.transform = "scaleY(1)";
   showMoreBtn.dataset.text = "Показать всё";
-  ele.style.height = "170px";
+  ele.style.removeProperty("flex-wrap");
+  if (window.innerWidth >= 768) {
+    ele.style.height = "170px";
+  } else {
+    ele.style.height = "70px";
+  }
 }
 
 function showMore() {
   showMoreBtn.children[0].style.transform = "scaleY(-1)";
   showMoreBtn.dataset.text = "Скрыть";
-  ele.style.height = "100%";
+  ele.style.flexWrap = "wrap";
+  ele.style.height = "auto";
 }
 
 function clickListener() {
@@ -136,25 +202,61 @@ function clickListener() {
   isHideMoreActive = !isHideMoreActive;
 }
 
+function rerenderScroll(count, perOneItem) {
+  listingEle.innerHTML = "";
+  drawXScroll(count);
+  let scrolledBrands = ele.scrollLeft / 244;
+  let toDrag = Math.ceil(scrolledBrands / perOneItem);
+  dragTheBall(toDrag);
+}
+
+function recountScrollItems(listWidth) {
+  let viewedBrands = Math.floor(listWidth / 244);
+  if (initViewedBrands != viewedBrands) {
+    switch (viewedBrands) {
+      case 3:
+        rerenderScroll(4, 3);
+        initScrollValue = 244 * 3;
+        break;
+      case 2:
+        rerenderScroll(6, 2);
+        initScrollValue = 244 * 2;
+        break;
+      case 1:
+        rerenderScroll(brands.length, 1);
+        initScrollValue = 244;
+        break;
+    }
+    initViewedBrands = viewedBrands;
+  }
+}
+
+function removeBlur() {
+  var beforeBlur = document.querySelector(".blur-before");
+  var beforeAfter = document.querySelector(".blur-after");
+  container.removeChild(beforeBlur);
+  container.removeChild(beforeAfter);
+}
+
 window.onresize = function (ev) {
   ev.stopImmediatePropagation();
+  recountScrollItems(window.innerWidth);
   viewableItems = Math.round((window.innerWidth * 0.74) / 26);
   maxSlideableWidth = (listingEle.children.length - viewableItems) * 26;
-  if (window.innerWidth >= 768 && showMoreBtn == null && btnIsRequire()) {
+  if (window.innerWidth >= 768 && showMoreBtn == null) {
     showMoreBtn = prepareButton();
     container.children[1].after(showMoreBtn);
     showMoreBtn.onclick = clickListener;
+    removeBlur();
   } else if (window.innerWidth < 768 && showMoreBtn != null) {
     hideMore();
     showMoreBtn = null;
     container.children[2].remove();
-  } else if (!btnIsRequire() && showMoreBtn != null) {
-    showMoreBtn = null;
-    container.children[2].remove();
+    // blurEdges()
   }
 };
 
-if (window.innerWidth >= 768 && btnIsRequire()) {
+if (window.innerWidth >= 768) {
   showMoreBtn = prepareButton();
   container.children[1].after(showMoreBtn);
   showMoreBtn.onclick = clickListener;

@@ -1,6 +1,5 @@
 @import url(blocks/brands/brands.css);
 @import url(blocks/brands-list/brands-list.css);
-@import url(blocks/brands-scroll/brands-scroll.css);
 @import url(blocks/my-x-scroll/my-x-scroll.css);
 @import url(blocks/show-more-btn/show-more-btn.css);
 @import url(blocks/next-btn/next-btn--round.css);
@@ -14,6 +13,9 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   max-height: 1024px;
 }
 

@@ -43,8 +43,10 @@
   background-color: rgba(250, 235, 215, 0.435);
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 768px) {
   .my-x-scroll {
     display: none;
   }
 }
+
+/* @keyframes */
