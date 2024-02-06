@@ -1,0 +1,17 @@
+.lang-converter {
+}
+
+.lang-converter__lang {
+  color: rgba(88, 94, 90, 0.589);
+  mix-blend-mode: soft-light;
+  transition-duration: 0.2s;
+}
+
+.lang-converter__lang--selected {
+  mix-blend-mode: soft-light;
+  color: antiquewhite;
+}
+
+.lang-converter__lang:hover {
+  color: antiquewhite;
+}

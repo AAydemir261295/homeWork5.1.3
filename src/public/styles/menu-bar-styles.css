@@ -5,12 +5,15 @@
 @import url(blocks/side-header/side-header.css);
 @import url(blocks/side-menu/side-menu.css);
 @import url(blocks/section-btn/section-btn.css);
-
+@import url(blocks/lang-converter/lang-converter.css);
 @import url(blocks/sel-language/sel-language.css);
-@import url(blocks/list-nostyle/list-nostyle.css);
 
 @import url(blocks/qk-link/qk-link.css);
 @import url(fonts.css);
+
+@import url(mixins/nostyle.css);
+@import url(mixins/icons.css);
+
 
 html {
   background-color: #808d85;

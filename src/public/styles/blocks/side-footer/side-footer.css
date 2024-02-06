@@ -34,22 +34,7 @@
   top: 5px;
 }
 
-.side-footer__lang-container {
+.side-footer__lang{
   position: relative;
   top: 25px;
-}
-
-.side-footer__lang {
-  color: rgba(88, 94, 90, 0.589);
-  mix-blend-mode: soft-light;
-  transition-duration: 0.2s;
-}
-
-.side-footer__lang--selected {
-  mix-blend-mode: soft-light;
-  color: antiquewhite;
-}
-
-.side-footer__lang:hover {
-  color: antiquewhite;
 }

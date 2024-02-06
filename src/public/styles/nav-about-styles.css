@@ -8,8 +8,10 @@
 
 @import url(blocks/show-more-btn/show-more-btn.css);
 @import url(blocks/nav-bar/nav-bar__divider.css);
-@import url(blocks/list-nostyle/list-nostyle.css);
 @import url(fonts.css);
+
+@import url(mixins/nostyle.css);
+@import url(mixins/icons.css);
 
 html {
   margin: 0;

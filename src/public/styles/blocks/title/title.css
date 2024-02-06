@@ -18,29 +18,32 @@
   left: 10px;
 }
 
-.title__buttons :first-child {
+.title__items :first-child.title__item {
   position: relative;
-  right: 115px;
+  right: 15px;
+  top: 2px;
 }
 
-.title__buttons :first-child::before {
+.title__items :first-child.title__item::before {
   content: "Оставить заявку";
   position: relative;
-  right: 120px;
+  top: -15px;
   text-wrap: nowrap;
   color: antiquewhite;
   font-family: "TT Lakes";
   font-size: 16px;
 }
 
-.title__buttons :last-child {
-  margin-right: 5px;
+.title__items :last-child.title__item {
+  position: relative;
+  right: 5px;
+  top: 2px;
 }
 
-.title__buttons :last-child::before {
+.title__items :last-child.title__item::before {
   content: "Статус ремонта";
   position: relative;
-  right: 115px;
+  top: -15px;
   text-wrap: nowrap;
   color: antiquewhite;
   font-family: "TT Lakes";
@@ -52,7 +55,7 @@
     height: 30px;
   }
 
-  .title__buttons {
+  .title__items {
     display: none;
   }
 }
@@ -62,7 +65,7 @@
     font-size: 22px;
   }
 
-  .title__buttons {
+  .title__items {
     display: none;
   }
 }
@@ -76,7 +79,7 @@
     font-size: 24px;
   }
 
-  .title__buttons {
+  .title__items {
     display: flex;
     flex-direction: row;
   }
@@ -91,7 +94,7 @@
     font-size: 24px;
   }
 
-  .title__buttons {
+  .title__items {
     display: flex;
     flex-direction: row;
   }
