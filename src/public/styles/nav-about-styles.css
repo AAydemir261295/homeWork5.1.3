@@ -6,12 +6,9 @@
 @import url(blocks/rounded-btn/rounded-btn.css);
 @import url(blocks/logo/logo-x40.css);
 
-/* @import url(blocks/about-description/about-description__show-more-wrapp.css); */
 @import url(blocks/show-more-btn/show-more-btn.css);
 @import url(blocks/nav-bar/nav-bar__divider.css);
-
 @import url(blocks/list-nostyle/list-nostyle.css);
-
 @import url(fonts.css);
 
 html {
@@ -65,7 +62,7 @@ body {
   }
 }
 
-@media screen and (max-width: 1441px) and (min-width: 780px) {
+@media screen and (max-width: 10000px) and (min-width: 780px) {
   header {
     width: 95%;
   }
@@ -82,7 +79,7 @@ body {
 }
 
 @media screen and (min-width: 1442px) {
-  .main{
+  .main {
     height: 490px;
     width: 1300px;
     border-top-left-radius: 20px;
@@ -92,5 +89,3 @@ body {
     padding-right: 15px;
   }
 }
-
-
