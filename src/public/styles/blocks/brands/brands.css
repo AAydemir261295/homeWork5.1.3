@@ -48,6 +48,8 @@
     transparent 0% 1%,
     #808d85 80% 100%
   );
+  opacity: 0;
+  transition-duration: 1s;
 }
 
 .blur-before {
@@ -63,6 +65,8 @@
     transparent 0% 1%,
     #808d85 80% 100%
   );
+  opacity: 0;
+  transition-duration: 1s;
 }
 
 @media screen and (min-width: 400px) {

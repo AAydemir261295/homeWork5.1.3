@@ -52,7 +52,55 @@ listingEle.onmouseover = function () {
   };
 };
 
-function blurEdges() {}
+function getBlurEle(className) {
+  var div = document.createElement("div");
+  div.classList.add(className);
+  return div;
+}
+
+function blurEdges(position) {
+  // =)
+  var toRemoveBefore = document.querySelector(".blur-before");
+  let toRemoveAfter = document.querySelector(".blur-after");
+  if (toRemoveBefore != null) {
+    toRemoveBefore.style.opacity = 0;
+    setTimeout(() => {
+      container.removeChild(toRemoveBefore);
+    }, 1000);
+  }
+  if (toRemoveAfter != null) {
+    toRemoveAfter.style.opacity = 0;
+    setTimeout(() => {
+      container.removeChild(toRemoveAfter);
+    }, 1000);
+  }
+
+  if (position == 0) {
+    let ele = getBlurEle("blur-after");
+    container.appendChild(ele);
+    ele.style.opacity = 1;
+    setTimeout(() => {
+      ele.style.opacity = 1;
+    }, 10);
+  } else if (position == listingEle.children.length - 1) {
+    let ele = getBlurEle("blur-before");
+    container.insertBefore(ele, container.children[0]);
+    setTimeout(() => {
+      ele.style.opacity = 1;
+    }, 10);
+  } else {
+    let eleBefore = getBlurEle("blur-before");
+    let eleAfter = getBlurEle("blur-after");
+    container.insertBefore(eleBefore, container.children[0]);
+    container.appendChild(eleAfter);
+    setTimeout(() => {
+      eleBefore.style.opacity = 1;
+      eleAfter.style.opacity = 1;
+    }, 10);
+  }
+}
+
+blurEdges(0);
 
 function showBrand(selected, position) {
   for (const item of listingEle.children) {
@@ -64,6 +112,7 @@ function showBrand(selected, position) {
   startPosition = position;
   previousPosition = width;
   ele.scrollTo({ left: width, behavior: "smooth" });
+  blurEdges(position);
 }
 
 function dragTheBall(position) {
@@ -113,6 +162,7 @@ ele.ontouchstart = function (onStart) {
         ele.scrollTo({ left: previousPosition, behavior: "smooth" });
       }
       dragTheBall(startPosition);
+      blurEdges(startPosition);
     }
     console.log(listingEle);
   };
@@ -181,6 +231,13 @@ function recountScrollItems(listWidth) {
   }
 }
 
+function removeBlur() {
+  var beforeBlur = document.querySelector(".blur-before");
+  var beforeAfter = document.querySelector(".blur-after");
+  container.removeChild(beforeBlur);
+  container.removeChild(beforeAfter);
+}
+
 window.onresize = function (ev) {
   ev.stopImmediatePropagation();
   recountScrollItems(window.innerWidth);
@@ -190,10 +247,12 @@ window.onresize = function (ev) {
     showMoreBtn = prepareButton();
     container.children[1].after(showMoreBtn);
     showMoreBtn.onclick = clickListener;
+    removeBlur();
   } else if (window.innerWidth < 768 && showMoreBtn != null) {
     hideMore();
     showMoreBtn = null;
     container.children[2].remove();
+    // blurEdges()
   }
 };
 
