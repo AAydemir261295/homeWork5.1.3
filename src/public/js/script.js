@@ -39,13 +39,13 @@ listingEle.onmouseover = function () {
     if (ev.deltaY < 0) {
       scrollDestination = Math.max(
         0,
-        Math.min(scrollDestination + 30, maxSlideableWidth)
+        Math.min(scrollDestination + 35, maxSlideableWidth)
       );
       listingEle.scrollTo(scrollDestination, 0);
     } else {
       scrollDestination = Math.max(
         0,
-        Math.min(scrollDestination - 30, maxSlideableWidth)
+        Math.min(scrollDestination - 35, maxSlideableWidth)
       );
       listingEle.scrollTo(scrollDestination, 0);
     }
@@ -63,9 +63,6 @@ function blurEdge(position) {
   if (position == listingEle.children.length - 1) {
     let blurEle = document.querySelector(".blur");
     blurEle.style.opacity = 0;
-
-    // let ele = getBlurEle("blur-before");
-    // container.insertBefore(ele, container.children[0]);
     setTimeout(() => {
       container.removeChild(blurEle);
     }, 1000);
@@ -95,7 +92,6 @@ function showBrand(selected, position) {
 }
 
 function dragTheBall(position) {
-  console.log(position);
   for (const item of listingEle.children) {
     item.classList.remove("my-x-scroll-item--selected");
   }
@@ -125,7 +121,6 @@ maxSlideableWidth = (listingEle.children.length - viewableItems) * 26;
 
 ele.ontouchstart = function (onStart) {
   ele.ontouchend = function (onEnd) {
-    // prevent default maybe to disable animation broke
     var before = onStart.changedTouches[0].pageX;
     var after = onEnd.changedTouches[0].pageX;
     if (before != after) {
@@ -144,6 +139,28 @@ ele.ontouchstart = function (onStart) {
       blurEdge(startPosition);
     }
     console.log(listingEle);
+  };
+};
+
+container.onmousedown = function (clickEv) {
+  clickEv.preventDefault();
+  window.onmouseup = function (moveEv) {
+    var before = clickEv.screenX;
+    var after = moveEv.screenX;
+    if (before != after) {
+      var swipeToLeft = before > after ? true : false;
+      if (swipeToLeft && startPosition < 10) {
+        ++startPosition;
+        previousPosition += initScrollValue;
+        ele.scrollTo({ left: previousPosition, behavior: "smooth" });
+      } else if (!swipeToLeft && startPosition > 0) {
+        --startPosition;
+        previousPosition -= initScrollValue;
+        ele.scrollTo({ left: previousPosition, behavior: "smooth" });
+      }
+      dragTheBall(startPosition);
+      blurEdge(startPosition);
+    }
   };
 };
 
@@ -219,10 +236,6 @@ function removeBlur() {
 
 window.onresize = function (ev) {
   ev.stopImmediatePropagation();
-  //
-  //after resize blur can be removed if
-  //
-  //
   recountScrollItems(window.innerWidth);
   viewableItems = Math.round((window.innerWidth * 0.74) / 26);
   maxSlideableWidth = (listingEle.children.length - viewableItems) * 26;
