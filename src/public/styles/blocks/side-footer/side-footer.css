@@ -16,25 +16,20 @@
   position: relative;
   display: flex;
   flex-direction: row;
+  width: 150px;
+  justify-content: space-between;
   top: -15px;
 }
 
-.side-footer__btn {
-  margin-left: 10px;
-  margin-right: 10px;
+.side-footer__address {
+  display: flex;
+  flex-direction: column;
 }
 
-.side-footer__mail {
+.side-footer__lang {
   position: relative;
-  top: -5px;
-}
-
-.side-footer__tel {
-  position: relative;
-  top: 5px;
-}
-
-.side-footer__lang{
-  position: relative;
+  display: flex;
   top: 25px;
+  width: 75px;
+  justify-content: space-between;
 }

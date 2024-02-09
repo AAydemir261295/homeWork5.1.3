@@ -5,6 +5,9 @@
   margin-top: 20px;
   min-height: 70px;
   overflow: hidden;
+  transition: all 0.5s linear;
+  /* transition-property: height; */
+  /* transition-duration: 1s; */
 }
 
 .brands-list__brand-container {
@@ -43,3 +46,45 @@
     height: 170px;
   }
 }
+
+/* .brands-list--show {
+  animation: show 0.4s linear;
+}
+
+.brands-list--hide-mobile {
+  animation: showMobile 0.4s ease-out;
+}
+
+.brands-list--hide {
+  animation: hide 0.4s ease-out;
+}
+
+@keyframes show {
+  0% {
+    height: 170px;
+  }
+
+  100% {
+    height: auto;
+  }
+}
+
+@keyframes hideMobile {
+  0% {
+    height: auto;
+  }
+
+  100% {
+    height: 70px;
+  }
+}
+
+@keyframes hide {
+  0% {
+    height: auto;
+  }
+
+  100% {
+    height: 170px;
+  }
+} */

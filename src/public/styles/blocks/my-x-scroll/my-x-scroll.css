@@ -9,11 +9,11 @@
   scrollbar-width: none;
 }
 
-.my-scroll::-webkit-scrollbar {
+.my-x-scroll::-webkit-scrollbar {
   display: none;
 }
 
-.my-scroll:hover {
+.my-x-scroll:hover {
 }
 
 .my-x-scroll-item {
@@ -22,7 +22,7 @@
   min-width: 15px;
   border: 1px solid antiquewhite;
   border-radius: 7px;
-  margin-right: 10px;
+  margin-right: 7px;
   transition-duration: 0.5s;
   cursor: pointer;
 }
@@ -33,7 +33,7 @@
   min-width: 15px;
   border: 1px solid antiquewhite;
   border-radius: 7px;
-  margin-right: 10px;
+  margin-right: 7px;
   transition-duration: 0.5s;
   cursor: pointer;
   background-color: rgba(250, 235, 215, 0.435);
@@ -48,5 +48,3 @@
     display: none;
   }
 }
-
-/* @keyframes */

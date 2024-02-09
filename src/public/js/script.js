@@ -125,44 +125,92 @@ ele.ontouchstart = function (onStart) {
     var after = onEnd.changedTouches[0].pageX;
     if (before != after) {
       var swipeToLeft = before > after ? true : false;
-      if (swipeToLeft && startPosition < 10) {
+      if (swipeToLeft && startPosition < listingEle.children.length - 1) {
         ++startPosition;
         previousPosition += initScrollValue;
-        // ele.scrollTo(previousPosition, 0);
         ele.scrollTo({ left: previousPosition, behavior: "smooth" });
+        dragTheBall(startPosition);
+        blurEdge(startPosition);
       } else if (!swipeToLeft && startPosition > 0) {
         --startPosition;
         previousPosition -= initScrollValue;
         ele.scrollTo({ left: previousPosition, behavior: "smooth" });
+        dragTheBall(startPosition);
+        blurEdge(startPosition);
       }
-      dragTheBall(startPosition);
-      blurEdge(startPosition);
     }
-    console.log(listingEle);
   };
 };
 
-container.onmousedown = function (clickEv) {
-  clickEv.preventDefault();
-  window.onmouseup = function (moveEv) {
-    var before = clickEv.screenX;
-    var after = moveEv.screenX;
-    if (before != after) {
-      var swipeToLeft = before > after ? true : false;
-      if (swipeToLeft && startPosition < 10) {
-        ++startPosition;
-        previousPosition += initScrollValue;
-        ele.scrollTo({ left: previousPosition, behavior: "smooth" });
-      } else if (!swipeToLeft && startPosition > 0) {
-        --startPosition;
-        previousPosition -= initScrollValue;
-        ele.scrollTo({ left: previousPosition, behavior: "smooth" });
-      }
-      dragTheBall(startPosition);
-      blurEdge(startPosition);
-    }
-  };
-};
+var before = 0;
+var after = 0;
+
+function setScroll() {
+  document.onmousemove = null;
+}
+
+function dragElements(e) {
+  e.preventDefault();
+
+  after = before - e.screenX;
+  before = after;
+  
+  console.log(after);
+  ele.scrollTo({
+    left: ele.scrollLeft + after,
+    behavior: "smooth",
+  });
+}
+
+function slide(e) {
+  e.preventDefault();
+  before = e.screenX;
+  console.log(before);
+  document.onmousemove = dragElements;
+  document.onmouseup = setScroll;
+}
+
+container.onmousedown = slide;
+
+// container.onmousedown = function (clickEv) {
+//   clickEv.preventDefault();
+//   var before = clickEv.screenX;
+
+//   window.onmousemove = function (moveEv) {
+//     var after = before - moveEv.screenX;
+//     before = after;
+
+//     var swipeToLeft = before > after ? true : false;
+//     console.log(after);
+//     // if (swipeToLeft) {
+//     // previousPosition += 30;
+//     ele.scrollTo({ left: after, behavior: "smooth" });
+//     // } else {
+//     // previousPosition -= 30;
+//     // ele.scrollTo({ left: previousPosition, behavior: "smooth" });
+//     // }
+//   };
+
+//   window.onmouseup = function (mouseUpEv) {
+//     var after = mouseUpEv.screenX;
+//     if (before != after) {
+//       var swipeToLeft = before > after ? true : false;
+//       if (swipeToLeft && startPosition < listingEle.children.length - 1) {
+//         ++startPosition;
+//         previousPosition += initScrollValue;
+//         ele.scrollTo({ left: previousPosition, behavior: "smooth" });
+//         dragTheBall(startPosition);
+//         blurEdge(startPosition);
+//       } else if (!swipeToLeft && startPosition > 0) {
+//         --startPosition;
+//         previousPosition -= initScrollValue;
+//         ele.scrollTo({ left: previousPosition, behavior: "smooth" });
+//         dragTheBall(startPosition);
+//         blurEdge(startPosition);
+//       }
+//     }
+//   };
+// };
 
 function prepareButton() {
   var button = document.createElement("button");
@@ -173,6 +221,10 @@ function prepareButton() {
   buttonIcon.alt = "Показать всё";
   button.appendChild(buttonIcon);
   return button;
+}
+
+function animationListener(ele, className, height) {
+  // ele.
 }
 
 function hideMore() {
