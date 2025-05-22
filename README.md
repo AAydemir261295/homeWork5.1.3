@@ -1,5 +1,5 @@
 # homeWork5.1.3
-html+css+js
+html+css(adaptive)+js
 
 3.1.4 -> https://aaydemir261295.github.io/homeWork5.1.3/src/public/templates/nav-about-block.html
 
